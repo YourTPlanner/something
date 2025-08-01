@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import Valkey from "ioredis";
 import { envLoader } from "../utils/envLoader";
 
@@ -8,7 +10,7 @@ if (!redisUrl) {
     throw new Error("Redis URL is missing in environment variables!");
 }
 
-let redisInstance : Valkey | null = null;
+let redisInstance : any | null = null;
 
 export const getRedisClient = () => {
     if(!redisInstance) {

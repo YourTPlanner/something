@@ -16,7 +16,7 @@ export async function uploadImagesToClodinary(file: Express.Multer.File, cloudin
         
         const image = await fs.readFile(file.path);
         
-        const compressedBuffer = await sharp(image.buffer)
+        const compressedBuffer = await sharp(Buffer.from(image.buffer))
             .resize({
                 width: 800,
                 height: 600,
